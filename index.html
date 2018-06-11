@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>To Do Lists</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.3.1.js" charset="utf-8"></script>
+    <script src="js/scripts.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="container">
+      <form id="task-form">
+        <div class="form-group">
+          <label for="input-task">Enter Task:</label>
+          <input id="input-task" type="text" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Add Task</button>
+      </form>
+      <br>
+      <form id="todo-form">
+        <div class="form-group">
+          <label for="input-task">Things to do:</label>
+          <input id="input-todo" type="text" class="form-control">
+        </div>
+        <button type="button" class="btn btn-info">Add more things</button>
+        <button type="submit" class="btn btn-danger">Submit List</button>
+      </form>
+
+      <div class="list-area">
+        <h2>To Do List</h2>
+        <ul id="todo-list">
+
+        </ul>
+
+      </div>
+    </div>
+
+  </body>
+</html>
