@@ -1,7 +1,7 @@
 // business logic
-function toDoList(task){
-  this.task = task;
-  this.toDoList = [];
+function toDoList(){
+  this.task = "";
+  this.toDoItems = [];
 }
 
 
@@ -12,23 +12,40 @@ function toDoList(task){
 
 // user interface logic
 $(document).ready(function(){
-  var toDoCounter = 1;
-  $('button#add-list-item').click(function(){
-    toDoCounter += 1;
-    $('#todo-list-input').append('<input id="todo' + toDoCounter + '" type="text" class="form-control">');
-
-  });
+  var newTask = new toDoList();
 
   $('#task-form').submit(function(event){
     event.preventDefault();
     var taskInput = $('input#input-task').val();
-    var newTask = new toDoList(taskInput);
+    newTask.task = taskInput;
+    newTask.toDoItems = [];
 
     $('#task-list').append('<li><span class="todo-task">' + newTask.task + '</span></li>');
     $('.todo-task').last().click(function(){
-      $('#todo-list').append('<li><span class="todo-list">' + newTask.task + '</span></li>');
+      //do something when click on task
     });
+    $('.task-form-area').hide();
+    $('.list-form-area').show();
     $('#task-form').trigger('reset');
+  });
+
+  $('#todo-form').submit(function(event){
+    event.preventDefault();
+    var listItem = $('input#input-todo').val();
+
+    newTask.toDoItems.push(listItem);
+    $('#todo-list').append('<li><span class="todo-list">' + listItem + '</span></li>');
+    $('.todo-list').last().click(function(){
+      //do something when click on list item
+    });
+    $('#todo-form').trigger('reset');
+
+  });
+
+  $('#list-complete').click(function(){
+    $('.list-form-area').hide();
+    $('.task-form-area').show();
+    $('#todo-list').remove();
   });
 
 });

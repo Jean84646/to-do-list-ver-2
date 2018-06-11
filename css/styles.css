@@ -8,3 +8,7 @@
   cursor: pointer;
   color: green;
 }
+
+.list-form-area {
+  display: none;
+}
