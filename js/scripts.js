@@ -24,7 +24,11 @@ $(document).ready(function(){
     var taskInput = $('input#input-task').val();
     var newTask = new toDoList(taskInput);
 
-    $('#todo-list').append('<li><span class="todo-task">' + newTask.task + '</span></li>');
+    $('#task-list').append('<li><span class="todo-task">' + newTask.task + '</span></li>');
+    $('.todo-task').last().click(function(){
+      $('#todo-list').append('<li><span class="todo-list">' + newTask.task + '</span></li>');
+    });
+    $('#task-form').trigger('reset');
   });
 
 });

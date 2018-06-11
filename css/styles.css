@@ -1,0 +1,10 @@
+.todo-task:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: blue;
+}
+
+.todo-list:hover {
+  cursor: pointer;
+  color: green;
+}
