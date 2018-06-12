@@ -14,9 +14,9 @@ function ToDoList(task){
 $(document).ready(function(){
 
   $('#add-list').click(function(){
-    $('#new-todo').append('<div class="new-todo">' +
+    $('#new-todo').append('<div class="new-todo remove-list">' +
                             '<div class="form-group">' +
-                              '<label for="input-task">Enter Item To Do:</label>' +
+                              '<label for="input-task" >Enter Item To Do:</label>' +
                               '<input type="text" class="form-control todo-list">' +
                             '</div>' +
                           '</div>');
@@ -43,6 +43,7 @@ debugger;
     });
 
     $('#task-form').trigger('reset');
+    $('div.remove-list').remove();
   });
 
 
