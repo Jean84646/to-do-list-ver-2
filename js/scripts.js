@@ -35,7 +35,7 @@ $(document).ready(function(){
       $('ul#todo-list').text("");
       newTask.toDoItems.forEach(function(listItem){
         $('ul#todo-list').append('<li><span class="todo-item">' + listItem + '</span></li>');
-        $('.todo-item').click(function(){
+        $('.todo-item').last().click(function(){
           $(this).toggleClass('struck');
         });
       });
