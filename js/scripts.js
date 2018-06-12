@@ -1,6 +1,6 @@
 // business logic
-function toDoList(){
-  this.task = "";
+function ToDoList(task){
+  this.task = task;
   this.toDoItems = [];
 }
 
@@ -12,40 +12,39 @@ function toDoList(){
 
 // user interface logic
 $(document).ready(function(){
-  var newTask = new toDoList();
+
+  $('#add-list').click(function(){
+    $('#new-todo').append('<div class="new-todo">' +
+                            '<div class="form-group">' +
+                              '<label for="input-task">Enter Item To Do:</label>' +
+                              '<input type="text" class="form-control todo-list">' +
+                            '</div>' +
+                          '</div>');
+  });
 
   $('#task-form').submit(function(event){
     event.preventDefault();
+debugger;
     var taskInput = $('input#input-task').val();
-    newTask.task = taskInput;
-    newTask.toDoItems = [];
+    var newTask = new ToDoList(taskInput);
 
-    $('#task-list').append('<li><span class="todo-task">' + newTask.task + '</span></li>');
-    $('.todo-task').last().click(function(){
-      //do something when click on task
+    $('.new-todo').each(function(){
+      var listItem = $(this).find('input.todo-list').val();
+      newTask.toDoItems.push(listItem);
     });
-    $('.task-form-area').hide();
-    $('.list-form-area').show();
+
+    $('ul#task-list').append('<li><span class="todo-task">' + newTask.task + '</span></li>');
+    $('.todo-task').last().click(function(){
+      $('#list-area h2').text(newTask.task);
+      $('ul#todo-list').text("");
+      newTask.toDoItems.forEach(function(listItem){
+        $('ul#todo-list').append('<li>' + listItem + '</li>');
+      });
+    });
+
     $('#task-form').trigger('reset');
   });
 
-  $('#todo-form').submit(function(event){
-    event.preventDefault();
-    var listItem = $('input#input-todo').val();
 
-    newTask.toDoItems.push(listItem);
-    $('#todo-list').append('<li><span class="todo-list">' + listItem + '</span></li>');
-    $('.todo-list').last().click(function(){
-      //do something when click on list item
-    });
-    $('#todo-form').trigger('reset');
-
-  });
-
-  $('#list-complete').click(function(){
-    $('.list-form-area').hide();
-    $('.task-form-area').show();
-    $('#todo-list').remove();
-  });
 
 });

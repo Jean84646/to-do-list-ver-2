@@ -16,11 +16,21 @@
             <label for="input-task">Enter Task:</label>
             <input id="input-task" type="text" class="form-control">
           </div>
+          <div id="new-todo">
+            <div class="new-todo">
+              <div class="form-group">
+                <label for="input-task">Enter Item To List:</label>
+                <input type="text" class="form-control todo-list">
+              </div>
+            </div>
+         </div>
+          <span class="btn btn-info" id="add-list">Add To List</span>
+
           <button type="submit" class="btn btn-success">Add Task</button>
         </form>
       </div>
       <br>
-      <div class="list-form-area">
+      <!-- <div class="list-form-area">
         <form id="todo-form">
           <div id="todo-list-input" class="form-group">
             <h3>Things to do:</h3>
@@ -31,11 +41,11 @@
         </form>
         <br>
         <button type="button" id="list-complete" class="btn btn-danger">Complete List</button>
-      </div>
+      </div> -->
       <br>
       <div class="row">
         <div class="col-md-6">
-          <div class="task-area">
+          <div id="task-area">
             <h2>Task List:</h2>
             <ul id="task-list">
 
@@ -45,8 +55,8 @@
         </div>
 
         <div class="col-md-6">
-          <div class="list-area">
-            <h2>To Do List:</h2>
+          <div id="list-area">
+            <h2></h2>
             <ul id="todo-list">
 
             </ul>
