@@ -7,16 +7,12 @@ function ToDoList(task){
 
 
 
-
-
-
 // user interface logic
 $(document).ready(function(){
 
   $('#add-list').click(function(){
     $('#new-todo').append('<div class="new-todo remove-list">' +
                             '<div class="form-group">' +
-                              '<label for="input-task" >Enter Item To Do:</label>' +
                               '<input type="text" class="form-control todo-list">' +
                             '</div>' +
                           '</div>');
@@ -24,7 +20,7 @@ $(document).ready(function(){
 
   $('#task-form').submit(function(event){
     event.preventDefault();
-debugger;
+
     var taskInput = $('input#input-task').val();
     var newTask = new ToDoList(taskInput);
 
@@ -38,7 +34,10 @@ debugger;
       $('#list-area h2').text(newTask.task);
       $('ul#todo-list').text("");
       newTask.toDoItems.forEach(function(listItem){
-        $('ul#todo-list').append('<li>' + listItem + '</li>');
+        $('ul#todo-list').append('<li><span class="todo-item">' + listItem + '</span></li>');
+        $('.todo-item').click(function(){
+          $(this).toggleClass('struck');
+        });
       });
     });
 

@@ -4,11 +4,11 @@
   color: blue;
 }
 
-.todo-list:hover {
+.todo-item:hover {
   cursor: pointer;
   color: green;
 }
 
-.list-form-area {
-  display: none;
+.struck {
+  text-decoration: line-through;
 }
